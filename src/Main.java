@@ -24,7 +24,7 @@ class Relation extends Binary {
 
 class Less extends Relation {
 
-    public Less(Expression expression, Expression expression1) {
+    Less(Expression expression, Expression expression1) {
         this.left = expression;
         this.right = expression1;
     }
@@ -41,7 +41,7 @@ class Less extends Relation {
 
 class Greater extends Relation {
 
-    public Greater(Expression expression, Expression expression1) {
+    Greater(Expression expression, Expression expression1) {
         this.left = expression;
         this.right = expression1;
     }
@@ -58,7 +58,7 @@ class Greater extends Relation {
 
 class Equal extends Relation {
 
-    public Equal(Expression expression, Expression expression1) {
+    Equal(Expression expression, Expression expression1) {
         this.left = expression;
         this.right = expression1;
     }
@@ -79,7 +79,7 @@ class Term extends Binary {
 
 class Plus extends Term {
 
-    public Plus(Expression expression, Expression expression1) {
+    Plus(Expression expression, Expression expression1) {
         this.left = expression;
         this.right = expression1;
     }
@@ -92,7 +92,7 @@ class Plus extends Term {
 
 class Minus extends Term {
 
-    public Minus(Expression expression, Expression expression1) {
+    Minus(Expression expression, Expression expression1) {
         this.left = expression;
         this.right = expression1;
     }
@@ -107,7 +107,7 @@ class Minus extends Term {
 
 class Factor extends Term {
 
-    public Factor(Expression expression, Expression expression1) {
+    Factor(Expression expression, Expression expression1) {
         this.left = expression;
         this.right = expression1;
     }
@@ -126,7 +126,7 @@ class Int extends Primary {
 
     private long value;
 
-    public Int(String value) {
+    Int(String value) {
         this.value = Long.parseLong(value);
     }
 
@@ -140,7 +140,7 @@ class Parenthesized extends Primary {
 
     private Expression expression;
 
-    public Parenthesized(Expression parse) {
+    Parenthesized(Expression parse) {
         this.expression = parse;
     }
 
@@ -155,7 +155,7 @@ class Parser {
     private ArrayList<String> tokens;
     private int iterator = 0;
 
-    public Parser(String s) {
+    Parser(String s) {
 
         tokens = new ArrayList<>();
         StringBuilder buffer = new StringBuilder();
@@ -209,12 +209,11 @@ class Parser {
             }
         }
         tokens.add(buffer.toString());
-        buffer = new StringBuilder();
 
         System.out.println(tokens.toString());
     }
 
-    public Expression parse() {
+    Expression parse() {
         return parseRelation();
     }
 
